@@ -1,7 +1,18 @@
-import React from 'react'
-import './index.less'
+import React from 'react';
+import './index.less';
 
-const Radio = ({ checked = 0, style, onClick, children }) => (
+export interface RadioProps {
+  // 是否checked
+  checked: boolean | number;
+  // 额外样式
+  style: React.CSSProperties;
+  // 额外内容
+  children: React.ReactNode;
+  // cancel func
+  onClick: () => void;
+}
+
+const Radio = ({ checked = 0, style, onClick, children }: RadioProps) => (
   <div className="radio-wrap flex ai-center" onClick={onClick}>
     <div className="radio-container relative" style={style}>
       <img
@@ -15,6 +26,6 @@ const Radio = ({ checked = 0, style, onClick, children }) => (
     </div>
     {children ? children : null}
   </div>
-)
+);
 
-export default Radio
+export default Radio;

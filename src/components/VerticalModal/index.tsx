@@ -1,5 +1,22 @@
-import React from 'react'
-import './index.less'
+import React from 'react';
+import './index.less';
+
+export interface VerticalModalProps {
+  // 弹窗标题
+  title?: string;
+  // 是否展示
+  isShow: boolean;
+  // 包裹层样式
+  wrapperStyle: React.CSSProperties;
+  // 额外样式
+  innerStyle: React.CSSProperties;
+  // 弹窗内容
+  children: React.ReactNode;
+  // cancel func
+  onCancel: (toggle: boolean) => void;
+  // 是否展示关闭弹窗
+  showClose: boolean;
+}
 
 const VerticalModal = ({
   title = '',
@@ -8,8 +25,8 @@ const VerticalModal = ({
   innerStyle = {},
   children,
   onCancel = () => {},
-  showClose = true
-}) => {
+  showClose = true,
+}: VerticalModalProps) => {
   return (
     <div className="vertical-modal-container" style={wrapperStyle}>
       <div
@@ -33,7 +50,7 @@ const VerticalModal = ({
         ) : null}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default VerticalModal
+export default VerticalModal;

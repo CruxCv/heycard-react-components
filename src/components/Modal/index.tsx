@@ -1,20 +1,35 @@
-import React from 'react'
-import './index.less'
+import React from 'react';
+import './index.less';
+
+export interface ModalProps {
+  // 是否展示
+  isShow: boolean;
+  // 额外样式
+  innerStyle: React.CSSProperties;
+  // 弹窗内容
+  children: React.ReactNode;
+  // cancel func
+  onCancel: () => void;
+  // 是否展示关闭弹窗
+  showClose: boolean;
+  // 点击蒙层是否可以关闭
+  maskClose: boolean;
+}
 
 const Modal = ({
-  isShow = false,
-  innerStyle = {},
+  isShow,
+  innerStyle,
   children,
-  onCancel = () => {},
-  showClose = true,
-  maskClose = true
-}) => {
+  onCancel,
+  showClose,
+  maskClose,
+}: ModalProps) => {
   return (
     <div className="motion-modal-container">
       <div
         className={`mask ${isShow ? '' : 'hide'}`}
         onClick={() => {
-          maskClose && onCancel()
+          if (maskClose) onCancel();
         }}
         style={{ zIndex: 999 }}
       />
@@ -34,7 +49,7 @@ const Modal = ({
         ) : null}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

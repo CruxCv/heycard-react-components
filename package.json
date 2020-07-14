@@ -16,8 +16,7 @@
     "lint-fix:style": "npm run lint:style -- --fix",
     "lint-fix": "npm run lint-fix:script && npm run lint-fix:style",
     "test": "npm run test",
-    "build-storybook": "build-storybook",
-    "version": "node ./scripts/generate-version"
+    "build-storybook": "build-storybook"
   },
   "author": "Crux",
   "license": "MIT",
@@ -38,6 +37,7 @@
     "@types/classnames": "^2.2.10",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^6.26.3",
     "babel-env": "^2.4.1",
     "babel-eslint": "^10.1.0",

@@ -18,12 +18,20 @@ const resolve = (pathname) => path.resolve(__dirname, pathname)
 // }, {})
 
 module.exports = {
-  // mode: 'development',
+  mode: 'production',
   // entry: {
   //   index: path.resolve(__dirname, '../src/components/index.js'),
   //   ...componentsMap,
   // },
   // entry: componentsMap,
+  resolve: {
+    extensions: ['.json', '.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      '@': resolve('src'),
+      '@comp': resolve('src/components'),
+      '@utils': resolve('src/utils'),
+    },
+  },
   entry: {
     index: resolve('../src/components/index.js'),
     vendor: [resolve('../src/utils/index.js')],
@@ -86,8 +94,28 @@ module.exports = {
           },
         ],
       },
+      // {
+      //   test: /\.j(s|sx)?$/,
+      //   exclude: /node_modules/,
+      //   loader: 'babel-loader',
+      // },
+      // {
+      //   test: /\.t(s|sx)?$/,
+      //   exclude: /node_modules/,
+      //   loader: ['awesome-typescript-loader', 'eslint-loader']
+      // },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.t(s|sx)?$/,
+        exclude: /node_modules/,
+        loader: ['awesome-typescript-loader', 'eslint-loader'],
+      },
+      {
+        test: /\.j(s|sx)?$/,
+        loader: ['eslint-loader'],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.j(s|sx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
