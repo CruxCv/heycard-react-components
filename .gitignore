@@ -16,3 +16,4 @@ coverage/
 .env
 /*.code-workspace
 /lib
+/storybook-static

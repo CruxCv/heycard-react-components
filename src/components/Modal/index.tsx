@@ -22,7 +22,7 @@ const Modal = ({
   children,
   onCancel,
   showClose = true,
-  maskClose = false,
+  maskClose = true,
 }: ModalProps) => {
   return (
     <div className="motion-modal-container">
@@ -34,15 +34,13 @@ const Modal = ({
         style={{ zIndex: 999 }}
       />
       <div
-        className={`modal-content ${
-          isShow ? '' : 'hide'
-        } relative flex-column ai-center jc-center`}
+        className={`modal-content ${isShow ? '' : 'hide'}`}
         style={{ zIndex: 999, ...innerStyle }}
       >
         {children}
         {showClose ? (
           <img
-            className="close-icon block"
+            className="close-icon"
             src="https://img.16pinpin.com/crux/cancel.png"
             onClick={onCancel}
           />

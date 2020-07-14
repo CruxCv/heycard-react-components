@@ -11,6 +11,7 @@ export interface BackTopProps {
   bottom?: number;
   // 距离右边的距离
   right?: number;
+  // * 左右互斥
 }
 
 const BackTop = ({

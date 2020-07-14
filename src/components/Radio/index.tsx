@@ -13,14 +13,14 @@ export interface RadioProps {
 }
 
 const Radio = ({ checked = 0, style = {}, onClick, children }: RadioProps) => (
-  <div className="radio-wrap flex ai-center" onClick={onClick}>
-    <div className="radio-container relative" style={style}>
+  <div className="radio-flex-wrap" onClick={onClick}>
+    <div className="radio-container" style={style}>
       <img
-        className="radio block"
+        className="radio"
         src="https://img.16pinpin.com/crux/kb/radio.png"
       />
       <img
-        className={`radio block select ${checked ? '' : 'hide'}`}
+        className={`radio select ${checked ? '' : 'hide'}`}
         src="https://img.16pinpin.com/crux/kb/radio_select.png"
       />
     </div>

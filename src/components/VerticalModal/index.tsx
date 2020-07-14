@@ -38,7 +38,7 @@ const VerticalModal = ({
         className={`modal-content ${isShow ? '' : 'hide'} relative`}
         style={{ zIndex: 999, ...innerStyle }}
       >
-        {title ? <div className="title tips1 bold">{title}</div> : null}
+        {title ? <div className="title">{title}</div> : null}
         {children}
         {showClose ? (
           <div className="close-wrap" onClick={() => onCancel(!isShow)}>

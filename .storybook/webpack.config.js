@@ -1,7 +1,7 @@
-const path = require('path')
+const path = require('path');
 
-const resolve = (pathname) => path.resolve(__dirname, pathname)
-const nodeModule = (name) => require.resolve(name)
+const resolve = (pathname) => path.resolve(__dirname, pathname);
+const nodeModule = (name) => require.resolve(name);
 
 module.exports = {
   resolve: {
@@ -9,7 +9,6 @@ module.exports = {
     extensions: ['.web.js', '.js', '.json', '.jsx'],
     alias: {
       '@': resolve('../src'),
-      components: resolve('../src/components'),
     },
   },
   module: {
@@ -18,31 +17,9 @@ module.exports = {
         test: /\.css$/,
         exclude: /node_modules(?!\/@storybook\/addon-info)/,
         use: ['style-loader', 'css-loader'],
-        // use: [
-        //   {
-        //     loader: 'style-loader',
-        //   },
-        //   {
-        //     loader: 'css-loader',
-        //     options: {
-        //       modules: {
-        //         localIdentName: '[name]__[local]--[hash:base64:5]',
-        //       },
-        //       sourceMap: true,
-        //       importLoaders: 1,
-        //     },
-        //   },
-        //   {
-        //     loader: 'postcss-loader',
-        //     options: {
-        //       sourceMap: 'inline',
-        //     },
-        //   },
-        // ],
       },
       {
         test: /\.less$/,
-        // exclude: /node_modules(?!\/@storybook\/addon-info)/,
         include: resolve('../src'),
         use: ['style-loader', 'css-loader', 'less-loader'],
       },
@@ -50,6 +27,11 @@ module.exports = {
         test: /\.(png|svg)$/,
         loader: nodeModule('url-loader'),
       },
+      {
+        test: /\.t(s|sx)?$/,
+        exclude: /node_modules/,
+        loader: ['ts-loader', 'react-docgen-typescript-loader'],
+      },
     ],
   },
-}
+};

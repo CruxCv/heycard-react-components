@@ -48,8 +48,8 @@ class Toast extends Component {
     return (
       <div className="toast-container" style={{ zIndex: 1000 }}>
         {notices.map((notice) => (
-          <div className="toast-bg flex ai-center jc-center" key={notice.key}>
-            <div className="toast-text f26 tips-f">{notice.content}</div>
+          <div className="toast-bg" key={notice.key}>
+            <div className="toast-text">{notice.content}</div>
           </div>
         ))}
       </div>

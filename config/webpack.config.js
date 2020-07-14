@@ -116,7 +116,7 @@ module.exports = {
       },
       {
         test: /\.j(s|sx)$/,
-        exclude: /node_modules/,
+        exclude: /node_modules|\.stories.js?/,
         loader: 'babel-loader',
       },
     ],
