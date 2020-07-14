@@ -21,7 +21,7 @@ export interface TabsProps {
   defaultValue?: TabValueType;
 }
 
-const Tabs = ({ tabs, className, defaultValue, onChange }: TabsProps) => {
+const Tabs = ({ tabs = [], className, defaultValue, onChange }: TabsProps) => {
   const [check, setCheck] = useState<TabValueType>(
     defaultValue || tabs[0].value
   );

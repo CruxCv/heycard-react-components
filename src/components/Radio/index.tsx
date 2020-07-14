@@ -5,14 +5,14 @@ export interface RadioProps {
   // 是否checked
   checked: boolean | number;
   // 额外样式
-  style: React.CSSProperties;
+  style?: React.CSSProperties;
   // 额外内容
   children: React.ReactNode;
   // cancel func
-  onClick: () => void;
+  onClick?: () => void;
 }
 
-const Radio = ({ checked = 0, style, onClick, children }: RadioProps) => (
+const Radio = ({ checked = 0, style = {}, onClick, children }: RadioProps) => (
   <div className="radio-wrap flex ai-center" onClick={onClick}>
     <div className="radio-container relative" style={style}>
       <img

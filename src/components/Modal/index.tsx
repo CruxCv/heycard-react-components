@@ -5,7 +5,7 @@ export interface ModalProps {
   // 是否展示
   isShow: boolean;
   // 额外样式
-  innerStyle: React.CSSProperties;
+  innerStyle?: React.CSSProperties;
   // 弹窗内容
   children: React.ReactNode;
   // cancel func
@@ -17,12 +17,12 @@ export interface ModalProps {
 }
 
 const Modal = ({
-  isShow,
-  innerStyle,
+  isShow = false,
+  innerStyle = {},
   children,
   onCancel,
-  showClose,
-  maskClose,
+  showClose = true,
+  maskClose = false,
 }: ModalProps) => {
   return (
     <div className="motion-modal-container">
