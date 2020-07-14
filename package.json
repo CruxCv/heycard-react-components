@@ -1,6 +1,6 @@
 {
   "name": "heycard-react-components",
-  "version": "1.0.9",
+  "version": "1.0.8",
   "private": false,
   "description": "heycard React UI Library",
   "files": [
@@ -12,8 +12,12 @@
     "deploy": "npm run build && gh-pages -d ./dist",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "sb": "npm run storybook",
+    "lint-fix:script": "npm run lint:script -- --fix",
+    "lint-fix:style": "npm run lint:style -- --fix",
+    "lint-fix": "npm run lint-fix:script && npm run lint-fix:style",
     "test": "npm run test",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "version": "node ./scripts/generate-version"
   },
   "author": "Crux",
   "license": "MIT",
